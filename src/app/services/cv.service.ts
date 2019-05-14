@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Cv } from '../class/cv'
 import { Job } from '../class/job'
 import { ActivatedRoute, Router} from '@angular/router';
+import { CvsJobsPage } from '../cvs-jobs/cvs-jobs.page';
 
 @Injectable({
   providedIn: 'root'
@@ -19,22 +20,23 @@ export class CvService {
     new Cv(3, "J'aime les malades", "Maitrise de seringues", "Ingénieur en informatique", this.jobs[2], "Beard", "Julien", "11/07/1997", "beardjulien@gmail.com", "Strombeek-Bever", "Belgique", "0479225837")
   ]
 
-  id;
+  private cvsjobs: Cv[] = []
 
-  constructor(private route:ActivatedRoute) { }
+  constructor() { }
 
   getCvs(): Cv[] {
     return this.cvs;
   }
 
-  getCvsJobs() {
-    this.id = this.route.snapshot.paramMap.get('id'); 
-
+  getCvsJobs(id: number) {
+    this.cvsjobs = []
     this.cvs.forEach(cv => {
-      if (cv.job == this.jobs[this.id]) {
-
+      if (cv.job.id == id) {
+        this.cvsjobs.push(cv);
       }      
     });
+
+    return this.cvsjobs;
   }
   
   deleteCv(id) {

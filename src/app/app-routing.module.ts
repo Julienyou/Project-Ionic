@@ -16,7 +16,7 @@ const routes: Routes = [
     loadChildren: './list/list.module#ListPageModule'
   },
   { path: 'jobs', loadChildren: './jobs/jobs.module#JobsPageModule' },
-  { path: 'cvs-jobs', loadChildren: './cvs-jobs/cvs-jobs.module#CvsJobsPageModule' },
+  { path: 'cvs-jobs/:id', loadChildren: './cvs-jobs/cvs-jobs.module#CvsJobsPageModule' },
   { path: 'cvs', loadChildren: './cvs/cvs.module#CvsPageModule' }
 ];
 
