@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Curriculum Vitae</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides [options]="sliderConfig">
+    <ion-slide *ngFor="let cv of cvs">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title> {{cv.job.job}} </ion-card-title>
+          <ion-card-content>
+          <table>
+              <tr>
+                  <td><strong> Nom : </strong></td>
+                  <td>{{cv.lastname}} {{cv.firstname}}</td>
+              </tr>
+              <tr>
+                  <td><strong> Né le : </strong></td>
+                  <td>{{cv.birthday}}</td>
+              </tr>
+              <br>
+              <tr>
+                  <td><strong> Pays : </strong></td>
+                  <td>{{cv.country}}</td>
+              </tr>
+              <tr>
+                  <td><strong> Ville: </strong></td>
+                  <td>{{cv.city}}</td>
+              </tr>
+              <tr>
+                  <td><strong> Mail : </strong></td>
+                  <td>{{cv.email}}</td>
+              </tr>
+              <tr>
+                  <td><strong> GSM : </strong></td>
+                  <td>{{cv.phone_number}}</td>
+              </tr>
+          </table>
+          <br>
+          <table>
+              <tr style="text-align:left;">
+                  <strong> Motivation : </strong>
+              </tr>
+              <tr style="text-align:left;">
+                  {{cv.motivation}}
+              </tr>
+              <br>
+              <tr style="text-align:left;">
+                  <strong> Compétences : </strong>
+              </tr>
+              <tr style="text-align:left;">
+                  {{cv.skills}}
+              </tr>
+              <br>
+              <tr style="text-align:left;">
+                  <strong> Expériences/Etudes : </strong>
+              </tr>
+              <tr style="text-align:left;">
+                {{cv.studies}}
+              </tr>
+          </table>
+          <br>
+          <ion-button expand="block" fill="solid" color="primary" [routerLink]="['/jobs']" >Modifier le CV</ion-button>
+          <ion-button expand="block" fill="solid" color="danger" (click)="delete(cv.id)">Supprimer le CV</ion-button>
+          <!-- <button class="btn btn-outline-danger" style="width:40%" (click)="delete(cv.id)">Supprimer le CV</button>
+          <a class="btn btn-outline-danger" style="width:40%" [routerLink]="['/updatecv', cv.id]">Modifier le CV</a> -->
+        </ion-card-content>
+      </ion-card-header>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
