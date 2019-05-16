@@ -9,7 +9,7 @@
 </ion-header>
   
 <ion-content>
-  <ion-slides *ngIf="cvs" [options]="sliderConfig">
+  <ion-slides [options]="sliderConfig">
     <ion-slide *ngFor="let cv of cvs">
       <ion-card>
         <ion-card-header>
@@ -66,7 +66,7 @@
               </tr>
           </table>
           <br>
-          <ion-button expand="block" fill="solid" color="primary" [routerLink]="['/jobs']" >Modifier le CV</ion-button>
+          <ion-button expand="block" fill="solid" color="primary" [routerLink]="['/cv-update' , cv.id]" >Modifier le CV</ion-button>
           <ion-button expand="block" fill="solid" color="danger" (click)="delete(cv.id)">Supprimer le CV</ion-button>
           <!-- <button class="btn btn-outline-danger" style="width:40%" (click)="delete(cv.id)">Supprimer le CV</button>
           <a class="btn btn-outline-danger" style="width:40%" [routerLink]="['/updatecv', cv.id]">Modifier le CV</a> -->

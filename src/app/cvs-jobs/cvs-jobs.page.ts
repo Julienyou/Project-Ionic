@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cv } from '../class/cv';
 import { CvService } from '../services/cv.service';
 import { ActivatedRoute, Router} from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-cvs-jobs',
@@ -18,7 +19,7 @@ export class CvsJobsPage implements OnInit {
     slidesPerView: 1.2
   }
 
-  constructor(private CvService: CvService, private router:Router, private route:ActivatedRoute) { }
+  constructor(private CvService: CvService, private router:Router, private route:ActivatedRoute, public toastController: ToastController) { }
 
   ngOnInit() {
     this.getCvsJobs();
@@ -39,7 +40,18 @@ export class CvsJobsPage implements OnInit {
       }
     }
 
+    this.showDeleteToast();
+
     this.router.navigate(['/cvs-jobs/', id]);
+  }
+
+  async showDeleteToast() {
+    const toast = await this.toastController.create({
+      message: 'Your CV have been deleted.',
+      duration: 2000,
+      color: "danger"
+    });
+    toast.present();
   }
 
 }

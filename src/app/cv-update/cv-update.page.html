@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Modification du CV</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form style="padding:5px" (ngSubmit)="onSubmit()" *ngIf="cv">
+    <ion-item>
+      <ion-label position="floating" for="lastname">Nom</ion-label>
+      <ion-input type="text" class="form-control" id="lastname" [(ngModel)]="cv.lastname" name="lastname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" for="firstname">Prénom</ion-label>
+      <ion-input type="text" class="form-control" id="firstname"
+              [(ngModel)]="cv.firstname" name="firstname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" for="motivation">Motivation</ion-label>
+      <ion-input type="text" class="form-control" id="motivation"
+              [(ngModel)]="cv.motivation" name="motivation"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" for="skills">Compétences</ion-label>
+      <ion-input type="text" class="form-control" id="skills"
+              [(ngModel)]="cv.skills" name="skills"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" for="studies">Expériences/Etudes</ion-label>
+      <ion-input type="text" class="form-control" id="studies"
+              [(ngModel)]="cv.studies" name="studies"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" for="birthday">Date de naissance (jj/mm/aaaa)</ion-label>
+      <ion-input type="text" class="form-control" id="birthday"
+              [(ngModel)]="cv.birthday" name="birthday"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" for="email">Email</ion-label>
+      <ion-input type="text" class="form-control" id="email"
+              [(ngModel)]="cv.email" name="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" for="city">Ville</ion-label>
+      <ion-input type="text" class="form-control" id="city"
+              [(ngModel)]="cv.city" name="city"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" for="country">Pays</ion-label>
+      <ion-input type="text" class="form-control" id="country"
+              [(ngModel)]="cv.country" name="country"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" for="phone_number">Numéro de téléphone</ion-label>
+      <ion-input type="text" class="form-control" id="phone_number"
+              [(ngModel)]="cv.phone_number" name="phone_number"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="jobs">
+      <ion-label position="floating" for="id_job">Job</ion-label>
+      <ion-select class="form-control" [(ngModel)]="cv.job.id" name="id_job">
+          <ion-select-option *ngFor="let job of jobs" [value]="job.id">{{ job.job }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-button type="submit" expand="block" fill="solid" color="primary" (onClick)="showToast()">Modifier mon CV</ion-button>
+  </form>
+</ion-content>

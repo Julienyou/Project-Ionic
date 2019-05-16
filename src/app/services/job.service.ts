@@ -15,6 +15,7 @@ export class JobService {
   constructor() {}
 
   getJobs(): Job[] {
+    console.log(this.jobs);
     return this.jobs;
   }
 

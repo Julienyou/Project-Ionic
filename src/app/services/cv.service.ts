@@ -21,11 +21,23 @@ export class CvService {
   ]
 
   private cvsjobs: Cv[] = []
+  private cv: Cv;
 
   constructor() { }
 
   getCvs(): Cv[] {
     return this.cvs;
+  }
+
+  getCv(id: number) {
+    this.cvs.forEach(cv => {
+      if (cv.id == id) {
+        this.cv = cv;
+      }
+    })
+
+    console.log(this.cv)
+    return this.cv;
   }
 
   getCvsJobs(id: number) {
@@ -37,6 +49,10 @@ export class CvService {
     });
 
     return this.cvsjobs;
+  }
+
+  updateCv(cv: Cv) {
+    this.cvs.push(cv);
   }
   
   deleteCv(id) {
