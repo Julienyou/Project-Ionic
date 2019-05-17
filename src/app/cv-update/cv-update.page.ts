@@ -28,13 +28,10 @@ export class CvUpdatePage implements OnInit {
   }
   getJobs() {
     this.jobs = this.JobService.getJobs()
-    console.log(this.jobs);
-
   }
   getCv() {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
     this.cv = this.CvService.getCv(this.id);
-    console.log(this.cv)
   }
   onSubmit() {
     this.CvService.updateCv(this.cv);
@@ -46,7 +43,7 @@ export class CvUpdatePage implements OnInit {
 
   async showToast() {
     const toast = await this.toastController.create({
-      message: 'Your CV have been saved.',
+      message: 'Your CV has been saved.',
       duration: 2000,
       color: "success"
     });

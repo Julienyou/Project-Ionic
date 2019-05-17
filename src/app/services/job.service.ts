@@ -12,11 +12,22 @@ export class JobService {
     new Job(3, "Médecin")
   ]
 
+  private jobID: Job;
+
   constructor() {}
 
   getJobs(): Job[] {
-    console.log(this.jobs);
     return this.jobs;
+  }
+
+  getJob(id: number) : Job {
+    this.jobs.forEach(job => {
+      if(job.id == id) {
+        this.jobID = job;
+      }
+    })
+
+    return this.jobID;
   }
 
   /* getJobs(): Observable<Job[]> {

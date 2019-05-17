@@ -45,7 +45,7 @@ export class CvsPage implements OnInit {
 
   async showDeleteToast() {
     const toast = await this.toastController.create({
-      message: 'Your CV have been deleted.',
+      message: 'Your CV has been deleted.',
       duration: 2000,
       color: "danger"
     });

@@ -3,6 +3,7 @@ import { Cv } from '../class/cv'
 import { Job } from '../class/job'
 import { ActivatedRoute, Router} from '@angular/router';
 import { CvsJobsPage } from '../cvs-jobs/cvs-jobs.page';
+import { JobService } from "../services/job.service";
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +23,9 @@ export class CvService {
 
   private cvsjobs: Cv[] = []
   private cv: Cv;
+  private index: number;
 
-  constructor() { }
+  constructor(private JobService: JobService) { }
 
   getCvs(): Cv[] {
     return this.cvs;
@@ -36,7 +38,6 @@ export class CvService {
       }
     })
 
-    console.log(this.cv)
     return this.cv;
   }
 
@@ -51,8 +52,14 @@ export class CvService {
     return this.cvsjobs;
   }
 
-  updateCv(cv: Cv) {
-    this.cvs.push(cv);
+  updateCv(cvUpdated: Cv) {
+    cvUpdated.job = this.JobService.getJob(cvUpdated.job.id)
+
+    this.cvs.forEach((cv, index) => {
+      if(cvUpdated.id == cv.id) {
+        this.cvs[index] = cvUpdated;
+      }
+    })
   }
   
   deleteCv(id) {
