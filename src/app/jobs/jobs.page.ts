@@ -16,8 +16,6 @@ export class JobsPage implements OnInit {
     this.getJobs() 
   }
   getJobs() {
-    /* this.JobService.getJobs()
-        .subscribe(data => { this.jobs = data;}) */
     this.jobs = this.JobService.getJobs();
   }
 

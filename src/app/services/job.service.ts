@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Job } from '../class/job';
-import { JobsPage } from '../jobs/jobs.page';
 
 @Injectable({
   providedIn: 'root'
@@ -29,13 +28,4 @@ export class JobService {
 
     return this.jobID;
   }
-
-  /* getJobs(): Observable<Job[]> {
-    return this.http.get<Job[]>(this.baseUrl + "/jobs");
-  }
-  addJob(job) { */
-    /* Send a POST request to the API for adding a particular job thanks to the formed json */
-  /*   return this.http.post<any>(this.baseUrl + "/addjob",
-    {"job": job});
-  } */
 }

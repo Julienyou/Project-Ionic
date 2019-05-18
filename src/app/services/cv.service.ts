@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Cv } from '../class/cv'
 import { Job } from '../class/job'
-import { ActivatedRoute, Router} from '@angular/router';
-import { CvsJobsPage } from '../cvs-jobs/cvs-jobs.page';
 import { JobService } from "../services/job.service";
 
 @Injectable({
@@ -23,7 +21,6 @@ export class CvService {
 
   private cvsjobs: Cv[] = []
   private cv: Cv;
-  private index: number;
 
   constructor(private JobService: JobService) { }
 
@@ -70,10 +67,4 @@ export class CvService {
       }
     }
   }
-
-  /* getCvsJobs() {
-    this.id = this.route.snapshot.paramMap.get('id');
-    this.CvService.getCvsJobs(this.id)
-        .subscribe(data => { this.cvs = data;})
-  } */
 }

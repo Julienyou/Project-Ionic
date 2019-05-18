@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { JobService } from 'src/app/services/job.service';
 import { CvService } from 'src/app/services/cv.service';
 import { Job } from 'src/app/class/job';
-import { Cv } from 'src/app/class/cv';
 import { ActivatedRoute, Router} from '@angular/router';
 import { ToastController } from '@ionic/angular';
 

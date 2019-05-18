@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cv } from '../class/cv';
 import { CvService } from '../services/cv.service';
-import { ActivatedRoute, Router} from '@angular/router';
+import { Router} from '@angular/router';
 import { ToastController } from '@ionic/angular';
 
 @Component({
